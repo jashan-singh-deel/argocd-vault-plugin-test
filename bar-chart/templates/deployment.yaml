@@ -2,10 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.deploymentName }}
-  labels:
-    app: {{ .Values.deploymentName }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: 1
   selector:
     matchLabels:
       app: {{ .Values.deploymentName }}
@@ -15,14 +13,7 @@ spec:
         app: {{ .Values.deploymentName }}
     spec:
       containers:
-        - name: alpine
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          command: {{ .Values.command | toJson }}
-          args: {{ .Values.args | toJson }}
-          ports:
-            - containerPort: {{ .Values.containerPort }}
-          resources:
-            limits:
-              memory: {{ .Values.resources.limits.memory | default "64Mi"}}
-              cpu: {{ .Values.resources.limits.cpu | default "250m" }}
+      - name: alpine
+        image: alpine:latest
+        command: ["/bin/sh", "-c"]
+        args: ["while true; do echo hello; sleep 10; done"]
