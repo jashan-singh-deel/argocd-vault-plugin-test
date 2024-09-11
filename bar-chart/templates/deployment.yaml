@@ -24,5 +24,5 @@ spec:
             - containerPort: {{ .Values.containerPort }}
           resources:
             limits:
-              memory: {{ .Values.resources.limits.memory }}
-              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory | default "64Mi"}}
+              cpu: {{ .Values.resources.limits.cpu | default "250m" }}
