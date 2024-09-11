@@ -12,6 +12,9 @@ resources:
     memory: "64Mi"
     cpu: "250m"
 
+service:
+  port: 80
+
 containerPort: 80
 command: ["/bin/sh", "-c"]
 args: ["while true; do echo hello; sleep 10; done"]
