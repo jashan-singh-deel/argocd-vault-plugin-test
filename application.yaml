@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/jashan-singh-deel/argocd-vault-plugin/tree/main'
+    repoURL: 'https://github.com/jashan-singh-deel/argocd-vault-plugin'
     targetRevision: HEAD
     path: 'bar-chart'
     helm:
