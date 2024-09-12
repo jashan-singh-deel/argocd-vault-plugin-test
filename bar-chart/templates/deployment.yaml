@@ -17,6 +17,12 @@ spec:
         image: alpine:latest
         command: ["/bin/sh", "-c"]
         args: ["while true; do echo hello; sleep 10; done"]
+        env:
+        - name: SAMPLE_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: example-secret3
+              key: sample-secret
 ---
 kind: Secret
 apiVersion: v1
