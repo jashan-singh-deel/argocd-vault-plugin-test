@@ -23,7 +23,7 @@ apiVersion: v1
 metadata:
   name: example-secret2
   annotations:
-    avp.kubernetes.io/path: prod/bar
+    avp.kubernetes.io/path: prod/secret
 type: Opaque
 stringData:
   sample-secret: <foo>
