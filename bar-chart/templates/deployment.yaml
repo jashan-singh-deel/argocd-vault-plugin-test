@@ -17,3 +17,13 @@ spec:
         image: alpine:latest
         command: ["/bin/sh", "-c"]
         args: ["while true; do echo hello; sleep 10; done"]
+---
+kind: Secret
+apiVersion: v1
+metadata:
+  name: example-secret
+  annotations:
+    avp.kubernetes.io/path: prod/{{ .Values.deploymentName }}
+type: Opaque
+stringData:
+  sample-secret: <foo>
